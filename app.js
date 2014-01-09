@@ -13,11 +13,11 @@ pc.runpicloop();
 
 
 app.get('/', function (request, response) {
-    response.send('<br/><img src=livepreview.mjpeg><br/>');
+    response.send('<br/><img src=snapshot.jpg><br/>');
 
 });
 
-app.get('/livepreview.mjpeg', function (request, res) {
+app.get('/snapshot.jpg', function (request, res) {
     res.writeHead(200, {
         'Content-Type': 'multipart/x-mixed-replace; boundary=myboundary',
         'Cache-Control': 'no-cache',
@@ -48,7 +48,7 @@ app.get('/livepreview.mjpeg', function (request, res) {
             res.write("\r\n");
 
 
-            setTimeout(send_next, 20);
+            setTimeout(send_next, 100);
         });
 
 
