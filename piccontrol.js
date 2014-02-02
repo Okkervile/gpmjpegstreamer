@@ -3,8 +3,8 @@
  */
 
 var spawn = require('child_process').spawn;
-var child = spawn('./resources/shell');
-
+var child = spawn('./shell');
+exports.sema=true;
 exports.Child = child;
 child.stderr.pipe(process.stderr);
 child.stdout.pipe(process.stdout);
@@ -12,8 +12,10 @@ child.stdout.pipe(process.stdout);
 
 exports.runpicloop = function () {
 
-    child.stdin.write('previewNAN\n');
 
+    if(exports.sema){
+    child.stdin.write('previewNAN\n');
+    }
 
 }
 setInterval(function () {
